@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>top.is-a.dev — Ticket Bot Dashboard</title>
+<meta name="description" content="Panel oficial del bot de tickets: transcripciones, gestión y estado del servicio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#12100d;--surface:#1a1713;--surface2:#221e18;
+--text:#ece7de;--muted:#9a938a;
+--accent:#e0a52e;--ok:#7fb069;
+--border:#2c2721;
+--radius:14px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Inter',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;z-index:10;background:rgba(18,16,13,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border)}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.05rem;letter-spacing:-.02em}
+.logo b{color:var(--accent)}
+.nav-links{display:flex;gap:26px;font-size:.9rem;color:var(--muted)}
+.nav-links a{transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.hero{padding:88px 0 72px;text-align:center}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border:1px solid var(--border);border-radius:999px;font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.14em}
+.badge i{width:7px;height:7px;border-radius:50%;background:var(--ok);display:inline-block}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.4rem,6vw,3.8rem);font-weight:700;letter-spacing:-.03em;margin:26px 0 14px}
+h1 span{color:var(--accent)}
+.lead{color:var(--muted);font-size:1.08rem;max-width:560px;margin:0 auto}
+.cta{display:inline-flex;gap:14px;margin-top:34px;flex-wrap:wrap;justify-content:center}
+.btn{display:inline-block;padding:13px 26px;border-radius:10px;font-weight:600;font-size:.95rem;transition:transform .2s,background .2s,border-color .2s}
+.btn-primary{background:var(--accent);color:#17130a}
+.btn-primary:hover{transform:translateY(-2px)}
+.btn-ghost{border:1px solid var(--border);color:var(--text)}
+.btn-ghost:hover{border-color:var(--muted)}
+section{padding:64px 0}
+.sec-title{font-family:'Space Grotesk',sans-serif;font-size:1.7rem;letter-spacing:-.02em;margin-bottom:8px}
+.sec-sub{color:var(--muted);margin-bottom:38px;font-size:.98rem}
+.grid{display:grid;gap:18px;grid-template-columns:1fr}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:28px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:#4a4238;transform:translateY(-3px)}
+.card .icon{font-size:1.5rem;margin-bottom:14px}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:1.08rem;margin-bottom:8px;letter-spacing:-.01em}
+.card p{color:var(--muted);font-size:.92rem}
+.mock{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;max-width:720px;margin:0 auto}
+.mock-bar{display:flex;gap:7px;padding:13px 16px;border-bottom:1px solid var(--border);background:var(--surface2)}
+.mock-bar i{width:11px;height:11px;border-radius:50%;background:#3a342c}
+.mock-bar i:first-child{background:#c9604a}.mock-bar i:nth-child(2){background:#c9a04a}.mock-bar i:nth-child(3){background:var(--ok)}
+.mock-body{padding:22px;display:flex;flex-direction:column;gap:14px}
+.msg{display:flex;gap:12px;align-items:flex-start}
+.avatar{width:34px;height:34px;border-radius:50%;flex-shrink:0;background:var(--surface2);border:1px solid var(--border);display:grid;place-items:center;font-size:.8rem;font-weight:600;color:var(--accent)}
+.msg-body{background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:11px 15px;font-size:.88rem;max-width:100%}
+.msg-body .who{font-size:.75rem;color:var(--accent);font-weight:600;margin-bottom:3px;display:block}
+.msg-body p{color:var(--muted)}
+footer{border-top:1px solid var(--border);padding:36px 0;margin-top:24px;color:var(--muted);font-size:.87rem}
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:center}
+.foot a{color:var(--text);transition:color .2s}
+.foot a:hover{color:var(--accent)}
+@media(min-width:720px){.grid{grid-template-columns:repeat(3,1fr)}}
+</style>
+</head>
+<body>
+<header>
+<div class="wrap">
+<nav>
+<div class="logo">top<b>.</b>is-a.dev</div>
+<div class="nav-links">
+<a href="#features">Features</a>
+<a href="#preview">Transcripciones</a>
+<a href="https://github.com/sobrinitovt">GitHub</a>
+</div>
+</nav>
+</div>
+</header>
+<main>
+<div class="wrap">
+<div class="hero">
+<span class="badge"><i></i> Sistema operativo</span>
+<h1>Panel de <span>tickets</span><br>del bot</h1>
+<p class="lead">Dashboard oficial para el bot de tickets de Discord: consulta transcripciones, revisa el estado del sistema y gestiona todo desde un solo lugar.</p>
+<div class="cta">
+<a class="btn btn-primary" href="#preview">Ver transcripciones</a>
+<a class="btn btn-ghost" href="https://github.com/sobrinitovt">Código en GitHub</a>
+</div>
+</div>
+</div>
+<section id="features">
+<div class="wrap">
+<h2 class="sec-title">Todo en un mismo dominio</h2>
+<p class="sec-sub">Un dominio corto, rutas claras — cada sección del sistema vive bajo top.is-a.dev.</p>
+<div class="grid">
+<div class="card"><div class="icon">📋</div><h3>Transcripciones</h3><p>Cada ticket cerrado genera una transcripción completa, consultable por ID con búsqueda y filtros.</p></div>
+<div class="card"><div class="icon">⚡</div><h3>Rutas modulares</h3><p>Panel en <code>/dashboard</code>, transcripts en <code>/tickets</code> — arquitectura de rutas lista para crecer.</p></div>
+<div class="card"><div class="icon">🛡️</div><h3>24/7</h3><p>Servicio desplegado en Cloudflare Pages: sin dormir, sin mantenimiento, HTTPS automático.</p></div>
+</div>
+</div>
+</section>
+<section id="preview">
+<div class="wrap" style="text-align:center">
+<h2 class="sec-title">Así se ve una transcripción</h2>
+<p class="sec-sub">Vista previa del lector de tickets.</p>
+<div class="mock">
+<div class="mock-bar"><i></i><i></i><i></i></div>
+<div class="mock-body" style="text-align:left">
+<div class="msg"><div class="avatar">U</div><div class="msg-body"><span class="who">usuario · 14:02</span><p>Hola, tengo un problema con mi pedido #1024</p></div></div>
+<div class="msg"><div class="avatar">S</div><div class="msg-body"><span class="who">soporte · 14:03</span><p>¡Hola! Reviso eso ahora mismo, un momento.</p></div></div>
+<div class="msg"><div class="avatar">S</div><div class="msg-body"><span class="who">soporte · 14:05</span><p>Listo, ya quedó resuelto. ¿Hay algo más en qué pueda ayudarte?</p></div></div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer>
+<div class="wrap foot">
+<div>© 2026 top.is-a.dev — proyecto de software libre.</div>
+<div>Contacto: <a href="https://github.com/sobrinitovt">github.com/sobrinitovt</a></div>
+</div>
+</footer>
+</body>
+</html>
